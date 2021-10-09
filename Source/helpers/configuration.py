@@ -13,10 +13,14 @@ class configuration:
 
     def initialize(self):
         data = dict(
-            plan = "",
-            os = "",
-            region = ""
+            plan = "vc2-4c-8gb",
+            os = "387",
+            region = "ams"
         )
 
         with open("vultr-config.json", "w") as output:
             json.dump(data, output)
+    
+    def load(self):
+        with open("vultr-config.json") as inputfile:
+            return json.load(inputfile)
